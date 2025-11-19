@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Exercises</title>
+</head>
+<body>
+
+<h2>4a - Exercise 1</h2>
+<p id="text">This text will change style when you click the button below.</p>
+<button onclick="jsStyle()">Click to style text</button>
+<hr>
+<h2>4b - Exercise 2</h2>
+<form onsubmit="return false;">
+    First name: <input type = "text" id="fname"><br><br>
+    Last name: <input type = "text" id="lname"><br><br>
+    <button onclick="getFormvalue()">Submit</button>
+</form>
+<hr>
+<h2>4c - Exercise 3</h2>
+<select id = "mySelect">
+    <option>Red</option>
+    <option>Green</option>
+    <option>Blue</option>
+</select>
+<button onclick="getOptions()">Options</button>
+<hr>
+<h2>4d - Exercise 4</h2>
+<p id="ex4d" onmouseover="toRed()" onmouseout="toBlack()">
+    Hover over this text to change color.
+</p>
+<hr>
+<h2>4e Exercise 5</h2>
+<input id="firstoperand" type="number" placeholder="First number">
+<input id="secondoperand" type="number" placeholder="Second number">
+<button onclick = "divide()">Divide</button>
+<button onclick="multiply()">Multiply</button>
+<p>Result: <span id="result"></span></p>
+<hr>
+<script>
+function jsStyle() {
+    const p = document.getElementById("text");
+    p.style.color = "purple";
+    p.style.fontSize = "32px";
+}
+function getFormvalue() {
+    const first = document.getElementById ("fname").value;
+    const last = document.getElementById ("lname").value;
+    alert(first +" "+ last);
+}
+function getOptions() {
+     const select = document.getElementById("mySelect");
+     const num = select.options.length;
+     const selectedText = select.options[select.selectedIndex].text;
+
+     alert("Number of options:" + num + "\nSelected: " +selectedText)
+}
+function toRed() {
+    document.getElementById("ex4d").style.color = "red";
+}
+function toBlack() {
+    document.getElementById("ex4d").style.color = "black"
+}
+function divide() {
+    const a = parseFloat(document.getElementById("firstoperand").value);
+    const b = parseFloat(document.getElementById ("secondoperand").value)
+    document.getElementById("result").innerText = a / b;
+}
+function multiply() {
+    const a = parseFloat(document.getElementById("firstoperand").value);
+    const b = parseFloat(document.getElementById("secondoperand").value);
+    document.getElementById("result").innerText = a * b;
+}
+</script>
